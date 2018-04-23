@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import List from './List/List'
 import uuid from 'uuid'
-const cloneDeep = require('clone-deep')
+import cloneDeep from 'clone-deep'
 
 class App extends Component {
   state = {
