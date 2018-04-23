@@ -1,17 +1,17 @@
-import React from 'react';
-import RowItem from '../RowItem/RowItem';
-import RowNameEdit from '../RowNameEdit/RowNameEdit';
-import RowName from '../RowName/RowName';
-import RowItemAdd from '../RowItemAdd/RowItemAdd';
-import './Row.css';
+import React from 'react'
+import RowItem from '../RowItem/RowItem'
+import RowNameEdit from '../RowNameEdit/RowNameEdit'
+import RowName from '../RowName/RowName'
+import RowItemAdd from '../RowItemAdd/RowItemAdd'
+import './Row.css'
 
 class Row extends React.Component {
     renderTitle() {
         if (this.props.row.editing) {
-            return <RowNameEdit rowName={this.props.row.name} updateName={this.props.updateName} />;
+            return <RowNameEdit rowName={this.props.row.name} updateName={this.props.updateName} />
         }
         
-        return <RowName enableEdit={this.props.enableEdit} name={this.props.row.name} />;
+        return <RowName enableEdit={this.props.enableEdit} name={this.props.row.name} />
     }
 
     render() {

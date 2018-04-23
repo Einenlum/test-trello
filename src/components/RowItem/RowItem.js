@@ -1,5 +1,5 @@
-import React from 'react';
-import './RowItem.css';
+import React from 'react'
+import './RowItem.css'
 
 const rowItem = ({item, removeItem}) => {
     const remove = () => {
@@ -13,4 +13,4 @@ const rowItem = ({item, removeItem}) => {
     )
 }
 
-export default rowItem;
+export default rowItem

@@ -1,5 +1,5 @@
-import React from 'react';
-import Row from '../Row/Row';
+import React from 'react'
+import Row from '../Row/Row'
 
 const list = ({rows, addItemToRow, removeItemToRow, updateRowName, enableEdit}) => {
     return (
@@ -18,4 +18,4 @@ const list = ({rows, addItemToRow, removeItemToRow, updateRowName, enableEdit}) 
     )
 }
 
-export default list;
+export default list

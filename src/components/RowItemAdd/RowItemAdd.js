@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 
 class RowItemAdd extends React.Component {
@@ -6,17 +6,17 @@ class RowItemAdd extends React.Component {
         if (event.key !== 'Enter') {
             return
         }
-        this.props.addItem(this.refs.newItemContent.value);
-        this.refs.newItemContent.value = '';
+        this.props.addItem(this.refs.newItemContent.value)
+        this.refs.newItemContent.value = ''
     }
     
     render() {
         return (
-            <form onSubmit={e => { e.preventDefault(); }}>
+            <form onSubmit={e => { e.preventDefault() }}>
                 <input type="text" ref="newItemContent" onKeyUp={this.add.bind(this)}/>
             </form>
-        );
+        )
     }
 }
 
-export default RowItemAdd;
+export default RowItemAdd

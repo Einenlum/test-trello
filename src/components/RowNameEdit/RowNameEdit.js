@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 class RowNameEdit extends React.Component {
     state = {
@@ -24,8 +24,8 @@ class RowNameEdit extends React.Component {
             onChange={this.updateText.bind(this)}
             onKeyUp={this.sendText.bind(this)}
             defaultValue={this.props.rowName}
-        ></textarea>;
+        ></textarea>
     }
 }
 
-export default RowNameEdit;
+export default RowNameEdit

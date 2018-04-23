@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import List from './components/List/List';
-import uuid from 'uuid';
-const cloneDeep = require('clone-deep');
+import React, { Component } from 'react'
+import List from './List/List'
+import uuid from 'uuid'
+const cloneDeep = require('clone-deep')
 
 class App extends Component {
   state = {
@@ -98,7 +98,7 @@ class App extends Component {
 
   removeItemToRow = (row) => {
     return (itemToRemove) => {
-      const state = cloneDeep(this.state);
+      const state = cloneDeep(this.state)
 
       state.rows = state.rows.map((rowItem) => {
         if (row.id !== rowItem.id) {
@@ -117,11 +117,9 @@ class App extends Component {
               }
             })
         }
-      });
+      })
 
-      console.log(state);
-
-      this.setState(state);
+      this.setState(state)
     }
   }
 
@@ -133,16 +131,16 @@ class App extends Component {
         name: itemName
       }
 
-      const state = cloneDeep(this.state);
+      const state = cloneDeep(this.state)
       state.rows = state.rows.map((rowItem) => {
         if (row.id === rowItem.id) {
-          rowItem.items.push(item);
+          rowItem.items.push(item)
         }
 
-        return rowItem;
+        return rowItem
       })
 
-      this.setState(state);
+      this.setState(state)
     }
   }
 
@@ -155,8 +153,8 @@ class App extends Component {
         enableEdit={this.enableEdit.bind(this)}
         rows={this.state.rows}
       />
-    );
+    )
   }
 }
 
-export default App;
+export default App
