@@ -44,6 +44,7 @@ const list = ({
           editCard={editCard(editingCard)}
           closeEdit={closeCardEdit}
           removeCard={removeCard}
+          rows={rows}
         />
       )}
     </div>
