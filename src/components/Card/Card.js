@@ -12,7 +12,7 @@ const card = ({card, removeCard, enableCardEdit}) => {
   }
 
   return (
-    <div className="card" onClick={enableEdit}>
+    <div className="card" onClick={enableEdit.bind(this)}>
       <p>
         ({card.position}) {card.name}{' '}
         <button type="button" onClick={remove.bind(this)}>
