@@ -53,16 +53,20 @@ class App extends PureComponent {
           {id: uuid.v4(), position: 5, name: 'bjéot upneuatienruiset'},
         ],
       },
-      {
-        id: uuid.v4(),
-        name: 'Done',
-        editing: false,
-        items: [
-          {id: uuid.v4(), position: 0, name: 'uerstu nresut enruee'},
-          {id: uuid.v4(), position: 1, name: 'aupe uie uiestuaie'},
-        ],
-      },
     ],
+  }
+
+  createRow = rowName => {
+    const row = {
+      name: rowName,
+      id: uuid.v4(),
+      editing: false,
+      items: [],
+    }
+
+    this.setState({
+      rows: [...this.state.rows, row],
+    })
   }
 
   enableEdit = row => {
@@ -164,6 +168,7 @@ class App extends PureComponent {
         removeItemToRow={this.removeItemToRow.bind(this)}
         updateRowName={this.updateRowName.bind(this)}
         enableEdit={this.enableEdit.bind(this)}
+        createRow={this.createRow.bind(this)}
         rows={this.state.rows}
       />
     )
