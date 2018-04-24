@@ -16,6 +16,7 @@ const list = ({
   enableCardEdit,
   editingCard,
   editCard,
+  closeCardEdit,
 }) => {
   const renderRows = rows => {
     return rows.map(row => {
@@ -39,7 +40,11 @@ const list = ({
       {renderRows(rows)}
       <CreateRow createRow={createRow} />
       {editingCard && (
-        <CardEdit card={editingCard} editCard={editCard(editingCard)} />
+        <CardEdit
+          card={editingCard}
+          editCard={editCard(editingCard)}
+          closeEdit={closeCardEdit}
+        />
       )}
     </div>
   )
@@ -53,6 +58,7 @@ list.propTypes = {
   enableEdit: PropTypes.func.isRequired,
   createRow: PropTypes.func.isRequired,
   enableCardEdit: PropTypes.func.isRequired,
+  closeCardEdit: PropTypes.func.isRequired,
 }
 
 export default list

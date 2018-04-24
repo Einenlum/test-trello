@@ -75,6 +75,12 @@ class App extends PureComponent {
     }
   }
 
+  closeCardEdit = () => {
+    this.setState({
+      editingCard: null,
+    })
+  }
+
   enableCardEdit = card => {
     this.setState({
       editingCard: card,
@@ -186,6 +192,7 @@ class App extends PureComponent {
         rows={this.state.rows}
         editingRow={this.state.editingRow}
         enableCardEdit={this.enableCardEdit.bind(this)}
+        closeCardEdit={this.closeCardEdit.bind(this)}
         editingCard={this.state.editingCard}
         editCard={this.editCard.bind(this)}
       />
