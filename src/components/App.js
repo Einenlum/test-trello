@@ -12,44 +12,114 @@ class App extends PureComponent {
         id: uuid.v4(),
         name: 'Backlog',
         cards: [
-          {id: uuid.v4(), position: 0, name: 'nurpsteu et ie'},
-          {id: uuid.v4(), position: 1, name: 'nautpearupet unirestuaie'},
-          {id: uuid.v4(), position: 2, name: 'nrpuset nupard puarestu en'},
-          {id: uuid.v4(), position: 3, name: 'nurpstenurpetu nrsutia enru'},
+          {
+            id: uuid.v4(),
+            position: 0,
+            name: 'nurpsteu et ie',
+            content: 'nuprset uanprest iuanertuai enrausit enaurestuanreit',
+          },
+          {
+            id: uuid.v4(),
+            position: 1,
+            name: 'nautpearupet unirestuaie',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
+          },
+          {
+            id: uuid.v4(),
+            position: 2,
+            name: 'nrpuset nupard puarestu en',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
+          },
+          {
+            id: uuid.v4(),
+            position: 3,
+            name: 'nurpstenurpetu nrsutia enru',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
+          },
           {
             id: uuid.v4(),
             position: 4,
             name: 'nauristenurist puloduv ersuite nuriest',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
           },
-          {id: uuid.v4(), position: 5, name: 'inret puresut pnrute ulidetuap'},
+          {
+            id: uuid.v4(),
+            position: 5,
+            name: 'inret puresut pnrute ulidetuap',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
+          },
         ],
       },
       {
         id: uuid.v4(),
         name: 'Todo',
         cards: [
-          {id: uuid.v4(), position: 0, name: 'nurpsteu nirestu ie'},
-          {id: uuid.v4(), position: 1, name: 'uie uie'},
-          {id: uuid.v4(), position: 2, name: 'ntuap rpte upe'},
+          {
+            id: uuid.v4(),
+            position: 0,
+            name: 'nurpsteu nirestu ie',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
+          },
+          {
+            id: uuid.v4(),
+            position: 1,
+            name: 'uie uie',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
+          },
+          {
+            id: uuid.v4(),
+            position: 2,
+            name: 'ntuap rpte upe',
+            content:
+              'nariute niurset uanirsetaunretanireta einrasu earstiuce arsiuet cuarsietcua reistua cersuaitce arsiute cuarsite cuaei',
+          },
         ],
       },
       {
         id: uuid.v4(),
         name: 'WIP',
         cards: [
-          {id: uuid.v4(), position: 0, name: 'auinrestu uie ie'},
+          {
+            id: uuid.v4(),
+            position: 0,
+            name: 'auinrestu uie ie',
+            content: 'naurstenuei uraste nrusetunreist',
+          },
           {
             id: uuid.v4(),
             position: 2,
             name: 'aiue nuparaiued aiueaaiuea uiaeueiuiepuarestu en',
+            content:
+              'aniurest pnrut enrsuaite nsteruasitenruaiseta unirestup nreusptenrauistenriuaset',
           },
           {
             id: uuid.v4(),
             position: 3,
             name: 'nruaset naprset uanrpest ualed ienrute',
+            content:
+              'aniurest pnrut enrsuaite nsteruasitenruaiseta unirestup nreusptenrauistenriuaset',
           },
-          {id: uuid.v4(), position: 4, name: 'narui tenruaiest nlpudet plu'},
-          {id: uuid.v4(), position: 5, name: 'bjéot upneuatienruiset'},
+          {
+            id: uuid.v4(),
+            position: 4,
+            name: 'narui tenruaiest nlpudet plu',
+            content:
+              'aniurest pnrut enrsuaite nsteruasitenruaiseta unirestup nreusptenrauistenriuaset',
+          },
+          {
+            id: uuid.v4(),
+            position: 5,
+            name: 'bjéot upneuatienruiset',
+            content:
+              'aniurest pnrut enrsuaite nsteruasitenruaiseta unirestup nreusptenrauistenriuaset',
+          },
         ],
       },
     ],
