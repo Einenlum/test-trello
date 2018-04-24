@@ -6,6 +6,7 @@ import cloneDeep from 'clone-deep'
 class App extends PureComponent {
   state = {
     editingRow: null,
+    editingCard: null,
     rows: [
       {
         id: uuid.v4(),
@@ -74,6 +75,12 @@ class App extends PureComponent {
     }
   }
 
+  enableCardEdit = card => {
+    this.setState({
+      editingCard: card,
+    })
+  }
+
   updateRowName = row => {
     return name => {
       const newState = {
@@ -122,6 +129,31 @@ class App extends PureComponent {
     }
   }
 
+  editCard = card => {
+    return newCardName => {
+      const rows = this.state.rows.map(row => {
+        return {
+          ...row,
+          cards: row.cards.map(cardElem => {
+            if (card.id !== cardElem.id) {
+              return cardElem
+            }
+
+            return {
+              ...cardElem,
+              name: newCardName,
+            }
+          }),
+        }
+      })
+
+      this.setState({
+        editingCard: null,
+        rows: rows,
+      })
+    }
+  }
+
   addCardToRow = row => {
     return cardName => {
       const card = {
@@ -153,6 +185,9 @@ class App extends PureComponent {
         createRow={this.createRow.bind(this)}
         rows={this.state.rows}
         editingRow={this.state.editingRow}
+        enableCardEdit={this.enableCardEdit.bind(this)}
+        editingCard={this.state.editingCard}
+        editCard={this.editCard.bind(this)}
       />
     )
   }

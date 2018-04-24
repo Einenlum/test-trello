@@ -1,0 +1,8 @@
+#card-edit {
+  position: absolute;
+  left: 300px;
+  top: 150px;
+  min-width: 500px;
+  min-height: 300px;
+  background: red;
+}

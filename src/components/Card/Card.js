@@ -2,13 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Card.css'
 
-const card = ({card, removeCard}) => {
+const card = ({card, removeCard, enableCardEdit}) => {
   const remove = () => {
     removeCard(card)
   }
 
+  const enableEdit = () => {
+    enableCardEdit(card)
+  }
+
   return (
-    <div className="card">
+    <div className="card" onClick={enableEdit}>
       <p>
         ({card.position}) {card.name}{' '}
         <button type="button" onClick={remove.bind(this)}>
@@ -22,6 +26,7 @@ const card = ({card, removeCard}) => {
 card.propTypes = {
   card: PropTypes.object.isRequired,
   removeCard: PropTypes.func.isRequired,
+  enableCardEdit: PropTypes.func.isRequired,
 }
 
 export default card

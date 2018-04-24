@@ -6,7 +6,15 @@ import RowName from '../RowName/RowName'
 import CardAdd from '../CardAdd/CardAdd'
 import './Row.css'
 
-const row = ({row, updateName, enableEdit, addCard, removeCard, editing}) => {
+const row = ({
+  row,
+  updateName,
+  enableEdit,
+  addCard,
+  removeCard,
+  enableCardEdit,
+  editing,
+}) => {
   const renderTitle = () => {
     if (editing) {
       return <RowNameEdit rowName={row.name} updateName={updateName} />
@@ -20,7 +28,14 @@ const row = ({row, updateName, enableEdit, addCard, removeCard, editing}) => {
       {renderTitle()}
       <div className="cards-list">
         {row.cards.map(card => {
-          return <Card removeCard={removeCard} card={card} key={card.id} />
+          return (
+            <Card
+              removeCard={removeCard}
+              card={card}
+              key={card.id}
+              enableCardEdit={enableCardEdit}
+            />
+          )
         })}
         <CardAdd addCard={addCard} />
       </div>
@@ -35,6 +50,7 @@ row.propTypes = {
   addCard: PropTypes.func.isRequired,
   removeCard: PropTypes.func.isRequired,
   editing: PropTypes.bool.isRequired,
+  enableCardEdit: PropTypes.func.isRequired,
 }
 
 export default row
