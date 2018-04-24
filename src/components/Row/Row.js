@@ -11,7 +11,6 @@ const row = ({
   updateName,
   enableEdit,
   addCard,
-  removeCard,
   enableCardEdit,
   editing,
 }) => {
@@ -29,12 +28,7 @@ const row = ({
       <div className="cards-list">
         {row.cards.map(card => {
           return (
-            <Card
-              removeCard={removeCard}
-              card={card}
-              key={card.id}
-              enableCardEdit={enableCardEdit}
-            />
+            <Card card={card} key={card.id} enableCardEdit={enableCardEdit} />
           )
         })}
         <CardAdd addCard={addCard} />
@@ -48,7 +42,6 @@ row.propTypes = {
   updateName: PropTypes.func.isRequired,
   enableEdit: PropTypes.func.isRequired,
   addCard: PropTypes.func.isRequired,
-  removeCard: PropTypes.func.isRequired,
   editing: PropTypes.bool.isRequired,
   enableCardEdit: PropTypes.func.isRequired,
 }

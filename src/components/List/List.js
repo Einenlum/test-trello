@@ -8,7 +8,7 @@ import './List.css'
 const list = ({
   rows,
   addCardToRow,
-  removeCardToRow,
+  removeCard,
   updateRowName,
   enableEdit,
   editingRow,
@@ -23,7 +23,6 @@ const list = ({
       return (
         <Row
           addCard={addCardToRow(row)}
-          removeCard={removeCardToRow(row)}
           updateName={updateRowName(row)}
           enableEdit={enableEdit(row)}
           editing={editingRow === row}
@@ -44,6 +43,7 @@ const list = ({
           card={editingCard}
           editCard={editCard(editingCard)}
           closeEdit={closeCardEdit}
+          removeCard={removeCard}
         />
       )}
     </div>
@@ -53,12 +53,13 @@ const list = ({
 list.propTypes = {
   rows: PropTypes.array.isRequired,
   addCardToRow: PropTypes.func.isRequired,
-  removeCardToRow: PropTypes.func.isRequired,
   updateRowName: PropTypes.func.isRequired,
   enableEdit: PropTypes.func.isRequired,
   createRow: PropTypes.func.isRequired,
   enableCardEdit: PropTypes.func.isRequired,
   closeCardEdit: PropTypes.func.isRequired,
+  removeCard: PropTypes.func.isRequired,
+  editCard: PropTypes.func.isRequired,
 }
 
 export default list

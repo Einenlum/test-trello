@@ -107,32 +107,36 @@ class App extends PureComponent {
     }
   }
 
-  removeCardToRow = row => {
-    return cardToRemove => {
-      const state = cloneDeep(this.state)
-
-      state.rows = state.rows.map(rowElem => {
-        if (row.id !== rowElem.id) {
-          return rowElem
-        }
-
-        return {
-          ...rowElem,
-          cards: rowElem.cards
-            .filter(card => {
-              return card.id !== cardToRemove.id
-            })
-            .map((value, index) => {
-              return {
-                ...value,
-                position: index,
-              }
-            }),
-        }
+  removeCard = cardToRemove => {
+    const rows = this.state.rows.map(rowElem => {
+      const found = rowElem.cards.filter(cardElem => {
+        return cardElem.id === cardToRemove.id
       })
 
-      this.setState(state)
-    }
+      if (!found.length) {
+        return rowElem
+      }
+
+      return {
+        ...rowElem,
+        cards: rowElem.cards
+          .filter(cardElem => {
+            return cardElem.id !== found[0].id
+          })
+          .map((cardElem, index) => {
+            return {
+              ...cardElem,
+              position: index,
+            }
+          }),
+      }
+    })
+
+    this.setState({
+      ...this.state,
+      editingCard: null,
+      rows: rows,
+    })
   }
 
   editCard = card => {
@@ -185,7 +189,6 @@ class App extends PureComponent {
     return (
       <List
         addCardToRow={this.addCardToRow.bind(this)}
-        removeCardToRow={this.removeCardToRow.bind(this)}
         updateRowName={this.updateRowName.bind(this)}
         enableEdit={this.enableEdit.bind(this)}
         createRow={this.createRow.bind(this)}
@@ -195,6 +198,7 @@ class App extends PureComponent {
         closeCardEdit={this.closeCardEdit.bind(this)}
         editingCard={this.state.editingCard}
         editCard={this.editCard.bind(this)}
+        removeCard={this.removeCard.bind(this)}
       />
     )
   }

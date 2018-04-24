@@ -19,6 +19,13 @@
 
 #card-edit-content textarea {
   width: 90%;
+  min-height: 200px;
+}
+
+#card-edit-content .main-content {
+  display: flex;
+  flex-orientation: row;
+  flex-align: top;
 }
 
 .close {

@@ -2,11 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Card.css'
 
-const card = ({card, removeCard, enableCardEdit}) => {
-  const remove = () => {
-    removeCard(card)
-  }
-
+const card = ({card, enableCardEdit}) => {
   const enableEdit = () => {
     enableCardEdit(card)
   }
@@ -15,9 +11,6 @@ const card = ({card, removeCard, enableCardEdit}) => {
     <div className="card" onClick={enableEdit.bind(this)}>
       <p>
         ({card.position}) {card.name}{' '}
-        <button type="button" onClick={remove.bind(this)}>
-          X
-        </button>
       </p>
     </div>
   )
@@ -25,7 +18,6 @@ const card = ({card, removeCard, enableCardEdit}) => {
 
 card.propTypes = {
   card: PropTypes.object.isRequired,
-  removeCard: PropTypes.func.isRequired,
   enableCardEdit: PropTypes.func.isRequired,
 }
 
