@@ -5,11 +5,11 @@ import cloneDeep from 'clone-deep'
 
 class App extends PureComponent {
   state = {
+    editingRow: null,
     rows: [
       {
         id: uuid.v4(),
         name: 'Backlog',
-        editing: false,
         items: [
           {id: uuid.v4(), position: 0, name: 'nurpsteu et ie'},
           {id: uuid.v4(), position: 1, name: 'nautpearupet unirestuaie'},
@@ -26,7 +26,6 @@ class App extends PureComponent {
       {
         id: uuid.v4(),
         name: 'Todo',
-        editing: false,
         items: [
           {id: uuid.v4(), position: 0, name: 'nurpsteu nirestu ie'},
           {id: uuid.v4(), position: 1, name: 'uie uie'},
@@ -36,7 +35,6 @@ class App extends PureComponent {
       {
         id: uuid.v4(),
         name: 'WIP',
-        editing: false,
         items: [
           {id: uuid.v4(), position: 0, name: 'auinrestu uie ie'},
           {
@@ -60,7 +58,6 @@ class App extends PureComponent {
     const row = {
       name: rowName,
       id: uuid.v4(),
-      editing: false,
       items: [],
     }
 
@@ -72,19 +69,7 @@ class App extends PureComponent {
   enableEdit = row => {
     return () => {
       this.setState({
-        rows: this.state.rows.map(rowItem => {
-          if (row.id !== rowItem.id) {
-            return {
-              ...rowItem,
-              editing: false,
-            }
-          }
-
-          return {
-            ...rowItem,
-            editing: true,
-          }
-        }),
+        editingRow: row,
       })
     }
   }
@@ -92,18 +77,15 @@ class App extends PureComponent {
   updateRowName = row => {
     return name => {
       const newState = {
+        editingRow: null,
         rows: this.state.rows.map(rowItem => {
           if (rowItem.id !== row.id) {
-            return {
-              ...rowItem,
-              editing: false,
-            }
+            return rowItem
           }
 
           return {
             ...rowItem,
             name: name,
-            editing: false,
           }
         }),
       }
@@ -170,6 +152,7 @@ class App extends PureComponent {
         enableEdit={this.enableEdit.bind(this)}
         createRow={this.createRow.bind(this)}
         rows={this.state.rows}
+        editingRow={this.state.editingRow}
       />
     )
   }

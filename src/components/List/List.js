@@ -10,6 +10,7 @@ const list = ({
   removeItemToRow,
   updateRowName,
   enableEdit,
+  editingRow,
   createRow,
 }) => {
   const renderRows = rows => {
@@ -20,6 +21,7 @@ const list = ({
           removeItem={removeItemToRow(row)}
           updateName={updateRowName(row)}
           enableEdit={enableEdit(row)}
+          editing={editingRow === row}
           key={row.id}
           row={row}
         />

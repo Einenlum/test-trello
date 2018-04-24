@@ -6,9 +6,9 @@ import RowName from '../RowName/RowName'
 import RowItemAdd from '../RowItemAdd/RowItemAdd'
 import './Row.css'
 
-const row = ({row, updateName, enableEdit, addItem, removeItem}) => {
+const row = ({row, updateName, enableEdit, addItem, removeItem, editing}) => {
   const renderTitle = () => {
-    if (row.editing) {
+    if (editing) {
       return <RowNameEdit rowName={row.name} updateName={updateName} />
     }
 
@@ -34,6 +34,7 @@ row.propTypes = {
   enableEdit: PropTypes.func.isRequired,
   addItem: PropTypes.func.isRequired,
   removeItem: PropTypes.func.isRequired,
+  editing: PropTypes.bool.isRequired,
 }
 
 export default row
