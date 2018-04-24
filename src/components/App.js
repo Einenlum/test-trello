@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import List from './List/List'
 import uuid from 'uuid'
 import cloneDeep from 'clone-deep'
 
-class App extends Component {
+class App extends PureComponent {
   state = {
     rows: [
       {

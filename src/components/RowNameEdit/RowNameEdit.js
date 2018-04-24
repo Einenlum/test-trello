@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class RowNameEdit extends React.Component {
+class RowNameEdit extends React.PureComponent {
   state = {
     text: this.props.rowName,
   }

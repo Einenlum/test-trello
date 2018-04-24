@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class RowItemAdd extends React.Component {
+class RowItemAdd extends React.PureComponent {
   constructor() {
     super()
     this.inputRef = React.createRef()
