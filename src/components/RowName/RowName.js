@@ -1,13 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-class RowName extends React.Component {
-  enableEditName() {
-    this.props.enableEdit()
+const rowName = ({enableEdit, name}) => {
+  const enableEditName = () => {
+    enableEdit()
   }
 
-  render() {
-    return <h1 onClick={this.enableEditName.bind(this)}>{this.props.name}</h1>
-  }
+  return <h1 onClick={enableEditName.bind(this)}>{name}</h1>
 }
 
-export default RowName
+rowName.propTypes = {
+  enableEdit: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+}
+
+export default rowName

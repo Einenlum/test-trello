@@ -1,12 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class RowItemAdd extends React.Component {
+  constructor() {
+    super()
+    this.inputRef = React.createRef()
+  }
+
   add(event) {
     if (event.key !== 'Enter') {
       return
     }
-    this.props.addItem(this.refs.newItemContent.value)
-    this.refs.newItemContent.value = ''
+    this.props.addItem(this.inputRef.current.value)
+    this.inputRef.current.value = ''
   }
 
   render() {
@@ -15,10 +21,14 @@ class RowItemAdd extends React.Component {
         onSubmit={e => {
           e.preventDefault()
         }}>
-        <input type="text" ref="newItemContent" onKeyUp={this.add.bind(this)} />
+        <input type="text" ref={this.inputRef} onKeyUp={this.add.bind(this)} />
       </form>
     )
   }
+}
+
+RowItemAdd.propTypes = {
+  addItem: PropTypes.func.isRequired,
 }
 
 export default RowItemAdd

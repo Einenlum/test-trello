@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Row from '../Row/Row'
 
 const list = ({
@@ -20,6 +21,14 @@ const list = ({
       />
     )
   })
+}
+
+list.propTypes = {
+  rows: PropTypes.array.isRequired,
+  addItemToRow: PropTypes.func.isRequired,
+  removeItemToRow: PropTypes.func.isRequired,
+  updateRowName: PropTypes.func.isRequired,
+  enableEdit: PropTypes.func.isRequired,
 }
 
 export default list

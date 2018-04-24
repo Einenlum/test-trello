@@ -1,45 +1,39 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RowItem from '../RowItem/RowItem'
 import RowNameEdit from '../RowNameEdit/RowNameEdit'
 import RowName from '../RowName/RowName'
 import RowItemAdd from '../RowItemAdd/RowItemAdd'
 import './Row.css'
 
-class Row extends React.Component {
-  renderTitle() {
-    if (this.props.row.editing) {
-      return (
-        <RowNameEdit
-          rowName={this.props.row.name}
-          updateName={this.props.updateName}
-        />
-      )
+const row = ({row, updateName, enableEdit, addItem, removeItem}) => {
+  const renderTitle = () => {
+    if (row.editing) {
+      return <RowNameEdit rowName={row.name} updateName={updateName} />
     }
 
-    return (
-      <RowName enableEdit={this.props.enableEdit} name={this.props.row.name} />
-    )
+    return <RowName enableEdit={enableEdit} name={row.name} />
   }
 
-  render() {
-    return (
-      <div className="row">
-        {this.renderTitle()}
-        <div className="items-list">
-          {this.props.row.items.map(item => {
-            return (
-              <RowItem
-                removeItem={this.props.removeItem}
-                item={item}
-                key={item.id}
-              />
-            )
-          })}
-          <RowItemAdd addItem={this.props.addItem} />
-        </div>
+  return (
+    <div className="row">
+      {renderTitle()}
+      <div className="items-list">
+        {row.items.map(item => {
+          return <RowItem removeItem={removeItem} item={item} key={item.id} />
+        })}
+        <RowItemAdd addItem={addItem} />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
-export default Row
+row.propTypes = {
+  row: PropTypes.object.isRequired,
+  updateName: PropTypes.func.isRequired,
+  enableEdit: PropTypes.func.isRequired,
+  addItem: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
+}
+
+export default row

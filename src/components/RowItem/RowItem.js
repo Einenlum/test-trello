@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './RowItem.css'
 
 const rowItem = ({item, removeItem}) => {
@@ -7,7 +8,7 @@ const rowItem = ({item, removeItem}) => {
   }
 
   return (
-    <div class="row-item">
+    <div className="row-item">
       <p>
         ({item.position}) {item.name}{' '}
         <button type="button" onClick={remove.bind(this)}>
@@ -16,6 +17,11 @@ const rowItem = ({item, removeItem}) => {
       </p>
     </div>
   )
+}
+
+rowItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  removeItem: PropTypes.func.isRequired,
 }
 
 export default rowItem

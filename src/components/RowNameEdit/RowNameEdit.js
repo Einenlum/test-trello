@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class RowNameEdit extends React.Component {
   state = {
@@ -28,6 +29,11 @@ class RowNameEdit extends React.Component {
       />
     )
   }
+}
+
+RowNameEdit.propTypes = {
+  rowName: PropTypes.string.isRequired,
+  updateName: PropTypes.func.isRequired,
 }
 
 export default RowNameEdit
