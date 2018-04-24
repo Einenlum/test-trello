@@ -1,31 +1,33 @@
 import React from 'react'
 
 class RowNameEdit extends React.Component {
-    state = {
-        text: this.props.rowName
+  state = {
+    text: this.props.rowName,
+  }
+
+  updateText(event) {
+    this.setState({
+      text: event.target.value,
+    })
+  }
+
+  sendText(event) {
+    if (event.key !== 'Enter') {
+      return
     }
 
-    updateText(event) {
-        this.setState({
-            text: event.target.value
-        })
-    }
+    this.props.updateName(this.state.text.trim('\n'))
+  }
 
-    sendText(event) {
-        if (event.key !== 'Enter') {
-            return
-        }
-
-        this.props.updateName(this.state.text.trim("\n"))
-    }
-
-    render() {
-        return <textarea
-            onChange={this.updateText.bind(this)}
-            onKeyUp={this.sendText.bind(this)}
-            defaultValue={this.props.rowName}
-        ></textarea>
-    }
+  render() {
+    return (
+      <textarea
+        onChange={this.updateText.bind(this)}
+        onKeyUp={this.sendText.bind(this)}
+        defaultValue={this.props.rowName}
+      />
+    )
+  }
 }
 
 export default RowNameEdit
