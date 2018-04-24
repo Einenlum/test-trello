@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class RowItemAdd extends React.PureComponent {
+class CardAdd extends React.PureComponent {
   constructor() {
     super()
     this.inputRef = React.createRef()
@@ -11,7 +11,7 @@ class RowItemAdd extends React.PureComponent {
     if (event.key !== 'Enter') {
       return
     }
-    this.props.addItem(this.inputRef.current.value)
+    this.props.addCard(this.inputRef.current.value)
     this.inputRef.current.value = ''
   }
 
@@ -27,8 +27,8 @@ class RowItemAdd extends React.PureComponent {
   }
 }
 
-RowItemAdd.propTypes = {
-  addItem: PropTypes.func.isRequired,
+CardAdd.propTypes = {
+  addCard: PropTypes.func.isRequired,
 }
 
-export default RowItemAdd
+export default CardAdd

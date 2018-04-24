@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import RowItem from '../RowItem/RowItem'
+import Card from '../Card/Card'
 import RowNameEdit from '../RowNameEdit/RowNameEdit'
 import RowName from '../RowName/RowName'
-import RowItemAdd from '../RowItemAdd/RowItemAdd'
+import CardAdd from '../CardAdd/CardAdd'
 import './Row.css'
 
-const row = ({row, updateName, enableEdit, addItem, removeItem, editing}) => {
+const row = ({row, updateName, enableEdit, addCard, removeCard, editing}) => {
   const renderTitle = () => {
     if (editing) {
       return <RowNameEdit rowName={row.name} updateName={updateName} />
@@ -18,11 +18,11 @@ const row = ({row, updateName, enableEdit, addItem, removeItem, editing}) => {
   return (
     <div className="row">
       {renderTitle()}
-      <div className="items-list">
-        {row.items.map(item => {
-          return <RowItem removeItem={removeItem} item={item} key={item.id} />
+      <div className="cards-list">
+        {row.cards.map(card => {
+          return <Card removeCard={removeCard} card={card} key={card.id} />
         })}
-        <RowItemAdd addItem={addItem} />
+        <CardAdd addCard={addCard} />
       </div>
     </div>
   )
@@ -32,8 +32,8 @@ row.propTypes = {
   row: PropTypes.object.isRequired,
   updateName: PropTypes.func.isRequired,
   enableEdit: PropTypes.func.isRequired,
-  addItem: PropTypes.func.isRequired,
-  removeItem: PropTypes.func.isRequired,
+  addCard: PropTypes.func.isRequired,
+  removeCard: PropTypes.func.isRequired,
   editing: PropTypes.bool.isRequired,
 }
 

@@ -10,7 +10,7 @@ class App extends PureComponent {
       {
         id: uuid.v4(),
         name: 'Backlog',
-        items: [
+        cards: [
           {id: uuid.v4(), position: 0, name: 'nurpsteu et ie'},
           {id: uuid.v4(), position: 1, name: 'nautpearupet unirestuaie'},
           {id: uuid.v4(), position: 2, name: 'nrpuset nupard puarestu en'},
@@ -26,7 +26,7 @@ class App extends PureComponent {
       {
         id: uuid.v4(),
         name: 'Todo',
-        items: [
+        cards: [
           {id: uuid.v4(), position: 0, name: 'nurpsteu nirestu ie'},
           {id: uuid.v4(), position: 1, name: 'uie uie'},
           {id: uuid.v4(), position: 2, name: 'ntuap rpte upe'},
@@ -35,7 +35,7 @@ class App extends PureComponent {
       {
         id: uuid.v4(),
         name: 'WIP',
-        items: [
+        cards: [
           {id: uuid.v4(), position: 0, name: 'auinrestu uie ie'},
           {
             id: uuid.v4(),
@@ -58,7 +58,7 @@ class App extends PureComponent {
     const row = {
       name: rowName,
       id: uuid.v4(),
-      items: [],
+      cards: [],
     }
 
     this.setState({
@@ -78,13 +78,13 @@ class App extends PureComponent {
     return name => {
       const newState = {
         editingRow: null,
-        rows: this.state.rows.map(rowItem => {
-          if (rowItem.id !== row.id) {
-            return rowItem
+        rows: this.state.rows.map(rowElem => {
+          if (rowElem.id !== row.id) {
+            return rowElem
           }
 
           return {
-            ...rowItem,
+            ...rowElem,
             name: name,
           }
         }),
@@ -94,20 +94,20 @@ class App extends PureComponent {
     }
   }
 
-  removeItemToRow = row => {
-    return itemToRemove => {
+  removeCardToRow = row => {
+    return cardToRemove => {
       const state = cloneDeep(this.state)
 
-      state.rows = state.rows.map(rowItem => {
-        if (row.id !== rowItem.id) {
-          return rowItem
+      state.rows = state.rows.map(rowElem => {
+        if (row.id !== rowElem.id) {
+          return rowElem
         }
 
         return {
-          ...rowItem,
-          items: rowItem.items
-            .filter(item => {
-              return item.id !== itemToRemove.id
+          ...rowElem,
+          cards: rowElem.cards
+            .filter(card => {
+              return card.id !== cardToRemove.id
             })
             .map((value, index) => {
               return {
@@ -122,21 +122,21 @@ class App extends PureComponent {
     }
   }
 
-  addItemToRow = row => {
-    return itemName => {
-      const item = {
+  addCardToRow = row => {
+    return cardName => {
+      const card = {
         id: uuid.v4(),
-        position: row.items.length,
-        name: itemName,
+        position: row.cards.length,
+        name: cardName,
       }
 
       const state = cloneDeep(this.state)
-      state.rows = state.rows.map(rowItem => {
-        if (row.id === rowItem.id) {
-          rowItem.items.push(item)
+      state.rows = state.rows.map(rowElem => {
+        if (row.id === rowElem.id) {
+          rowElem.cards.push(card)
         }
 
-        return rowItem
+        return rowElem
       })
 
       this.setState(state)
@@ -146,8 +146,8 @@ class App extends PureComponent {
   render() {
     return (
       <List
-        addItemToRow={this.addItemToRow.bind(this)}
-        removeItemToRow={this.removeItemToRow.bind(this)}
+        addCardToRow={this.addCardToRow.bind(this)}
+        removeCardToRow={this.removeCardToRow.bind(this)}
         updateRowName={this.updateRowName.bind(this)}
         enableEdit={this.enableEdit.bind(this)}
         createRow={this.createRow.bind(this)}

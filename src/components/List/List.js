@@ -6,8 +6,8 @@ import './List.css'
 
 const list = ({
   rows,
-  addItemToRow,
-  removeItemToRow,
+  addCardToRow,
+  removeCardToRow,
   updateRowName,
   enableEdit,
   editingRow,
@@ -17,8 +17,8 @@ const list = ({
     return rows.map(row => {
       return (
         <Row
-          addItem={addItemToRow(row)}
-          removeItem={removeItemToRow(row)}
+          addCard={addCardToRow(row)}
+          removeCard={removeCardToRow(row)}
           updateName={updateRowName(row)}
           enableEdit={enableEdit(row)}
           editing={editingRow === row}
@@ -39,8 +39,8 @@ const list = ({
 
 list.propTypes = {
   rows: PropTypes.array.isRequired,
-  addItemToRow: PropTypes.func.isRequired,
-  removeItemToRow: PropTypes.func.isRequired,
+  addCardToRow: PropTypes.func.isRequired,
+  removeCardToRow: PropTypes.func.isRequired,
   updateRowName: PropTypes.func.isRequired,
   enableEdit: PropTypes.func.isRequired,
   createRow: PropTypes.func.isRequired,
